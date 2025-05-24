@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family:myHeadingfont;
+   src: url('./fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family:myParafont;
+   src: url('./fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family:myButtonfont;
+   src: url('./fonts/Fredoka.ttf') format('truetype');
+}
+
+
+body {
+  overflow-y: scroll;            /* enable vertical scroll */
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari, Opera */
+}
+
+.hero-overlay{
+    background: linear-gradient(
+  45deg, 
+  rgb(0, 0, 0), 
+  rgba(255, 255, 255, 0), 
+  rgba(0, 0, 0, 0.968)
+);
+}
+
+.nav-links{
+  font-family: myHeadingfont;
+}
+
