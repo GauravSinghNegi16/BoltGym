@@ -1,16 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { PiArrowCircleUpBold } from "react-icons/pi";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Programs = () => {
   const navigate = useNavigate();
-  const containerRef = useRef(null);
 
   const programs = [
     {
@@ -45,32 +39,6 @@ const Programs = () => {
     },
   ];
 
-  useEffect(() => {
-    const cards = containerRef.current.querySelectorAll(".program-card");
-
-    cards.forEach((card) => {
-      gsap.fromTo(
-        card,
-        { autoAlpha: 0, y: 50 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
     <div className="w-full bg-black text-white px-4 py-12 font-[myParafont] relative">
       {/* Back button */}
@@ -94,16 +62,11 @@ const Programs = () => {
       </div>
 
       {/* Program Cards */}
-      <div
-        ref={containerRef}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
         {programs.map((prog, index) => (
-          <motion.div
+          <div
             key={index}
             className="program-card bg-zinc-900 rounded-2xl overflow-hidden shadow-md group hover:scale-[1.02] transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
             {/* Image with Tag */}
             <div
@@ -124,7 +87,7 @@ const Programs = () => {
                 {prog.description}
               </p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

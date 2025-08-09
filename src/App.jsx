@@ -18,10 +18,19 @@ function App() {
       {location.pathname === "/" && <NavBar />}
 
       <Routes>
+        {/* Home page */}
         <Route path="/" element={<Home />} />
+
+        {/* Hero's "Learn More" button */}
         <Route path="/about" element={<AboutDetail />} />
+
+        {/* Hero's "Join Now" button */}
         <Route path="/contact" element={<Contact />} />
+
+        {/* Hero's "Explore All" button */}
         <Route path="/programs" element={<Programs />} />
+
+        {/* Pricing page */}
         <Route path="/pricing" element={<Pricing />} />
       </Routes>
     </div>

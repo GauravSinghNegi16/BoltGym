@@ -24,7 +24,6 @@ const AboutDetail = () => {
         aria-label="Go back"
       >
         <FaArrowLeft />
-        <span className="hidden sm:inline">Back</span>
       </button>
 
       {/* Section 1 */}
@@ -63,7 +62,7 @@ const AboutDetail = () => {
           ].map((facility, idx) => (
             <motion.li
               key={idx}
-              whileHover={{ scale: 1.05, color: "#ffffff" }}
+              whileHover={{ scale: 1.02, color: "#ffffff" }}
               className="transition-colors duration-200"
             >
               {facility}
@@ -104,7 +103,7 @@ const AboutDetail = () => {
             "⚡ Yearly Plan – ₹14,999",
             "🎁 Free trial available",
           ].map((plan, i) => (
-            <motion.li key={i} whileHover={{ scale: 1.05, color: "#ffffff" }} className="transition">
+            <motion.li key={i} whileHover={{ scale: 1.02, color: "#ffffff" }} className="transition">
               {plan}
             </motion.li>
           ))}

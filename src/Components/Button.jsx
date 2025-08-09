@@ -11,7 +11,7 @@ function Button({ title }) {
         border: "1px solid #e4ff1a"
       }}
       transition={{ duration: 0.3 }}
-      className="h-12 px-6 bg-[#e4ff1a] text-black font-semibold text-xl capitalize rounded-tl-2xl rounded-br-2xl font-[myButtonfont] mt-3
+      className="mt-10 h-12 px-6 bg-[#e4ff1a] text-black font-semibold text-xl capitalize rounded-tl-2xl rounded-br-2xl font-[myButtonfont] mt-3
                  md:h-20 md:text-[4vw] md:px-7
                  lg:text-[2vw] lg:h-16"
     >

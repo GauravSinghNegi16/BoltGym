@@ -1,17 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Button from "./Button";
 import { LuIndianRupee } from "react-icons/lu";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Pricing = () => {
   const navigate = useNavigate();
-  const cardsRef = useRef([]);
 
   const data = [
     {
@@ -42,27 +36,6 @@ const Pricing = () => {
     },
   ];
 
-  useEffect(() => {
-    cardsRef.current.forEach((card, i) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-          delay: i * 0.2,
-        }
-      );
-    });
-  }, []);
-
   return (
     <div className="w-full bg-black px-4 py-12 text-white font-[myPafont] relative">
       {/* Back button top-left */}
@@ -89,7 +62,6 @@ const Pricing = () => {
           return (
             <div
               key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
               className="bg-zinc-200 rounded-3xl px-6 py-6 w-full sm:w-[80%] md:w-[45%] lg:w-[30%] max-w-[350px] flex flex-col justify-between shadow-lg"
             >
               <h2 className="text-2xl text-zinc-800 font-semibold font-[myHeadingfont] text-center capitalize mb-4">
@@ -110,10 +82,8 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              {/* Framer motion hover on Button */}
-              <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-                <Button title={"join now"} />
-              </motion.div>
+              {/* Static Button */}
+              <Button title={"join now"} />
             </div>
           );
         })}

@@ -25,7 +25,6 @@ const Contact = () => {
         whileHover={{ scale: 1.1 }}
       >
         <FaArrowLeft />
-        <span className="hidden sm:inline">Back</span>
       </motion.button>
 
       <motion.div

@@ -39,7 +39,7 @@ const About = () => {
             <motion.li
               key={index}
               className="bg-[#1f1f1f] p-3 rounded-lg hover:bg-[#2b2b2b] transition"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.02 }}
             >
               {item}
             </motion.li>

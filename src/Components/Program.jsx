@@ -1,10 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { PiArrowCircleUpBold } from "react-icons/pi";
 import Button from "./Button";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // LazyImage component to show blur placeholder while loading
 function LazyImage({ src, alt, className }) {
@@ -30,8 +26,6 @@ function LazyImage({ src, alt, className }) {
 }
 
 function Program() {
-  const containerRef = useRef(null);
-
   const data = [
     { url: "/Images/cardio.webp", title: "cardio" },
     { url: "/Images/Strength.jpg", title: "strength" },
@@ -39,32 +33,6 @@ function Program() {
     { url: "/Images/machines.jpg", title: "machines" },
     { url: "/Images/boxing.jpg", title: "boxing" },
   ];
-
-  useEffect(() => {
-    const cards = containerRef.current.querySelectorAll(".program-large-card");
-
-    cards.forEach((card) => {
-      gsap.fromTo(
-        card,
-        { autoAlpha: 0, y: 80 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   return (
     <div className="w-full min-h-screen bg-black px-4 py-10 md:px-[6%]">
@@ -87,28 +55,19 @@ function Program() {
           className="text-sm sm:text-base md:text-lg text-white font-[myParafont] capitalize
                 md:text-[3vw] md:w-[95%] lg:text-[1.3vw] lg:w-[45%] lg:mt-4"
         >
-          Offers customized workout programs designed to help clients achieve their fitness goals, such as weight loss, strength and conditioning and body shaping
+          Offers customized workout programs designed to help clients achieve
+          their fitness goals, such as weight loss, strength and conditioning
+          and body shaping
         </p>
       </div>
 
-      <div
-        ref={containerRef}
-        className="w-full min-h-screen flex flex-wrap gap-6 justify-center"
-      >
+      <div className="w-full min-h-screen flex flex-wrap gap-6 justify-center">
         {data.map((elem, index) => (
           <div
             key={index}
-            className={`program-large-card relative bg-black w-full rounded-xl overflow-hidden ${
-              index === 0 || index === 1 || index === 4
-                ? "md:w-full h-[450px] lg:h-[460px]"
-                : "md:w-[48%] h-[350px]"
-            }`}
+            className="program-large-card relative bg-black w-full rounded-xl overflow-hidden md:w-full h-[450px] lg:h-[460px]"
           >
-            <LazyImage
-              src={elem.url}
-              alt={elem.title}
-              className="w-full h-full"
-            />
+            <LazyImage src={elem.url} alt={elem.title} className="w-full h-full" />
 
             <h1
               className="absolute bottom-3 left-1 text-5xl text-[#e4ff1a] font-semibold font-[myHeadingfont] capitalize

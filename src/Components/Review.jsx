@@ -70,7 +70,7 @@ const Review = () => {
           <motion.div
             key={index}
             className="review-card bg-[#1a1a1a] rounded-2xl p-5 shadow-md border border-[#2e2e2e] flex gap-4 items-start"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             <img
